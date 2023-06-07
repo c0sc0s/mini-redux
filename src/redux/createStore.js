@@ -1,5 +1,10 @@
-import { isPlainObject, INIT, UNKNOW } from "./utils";
-export default function (reducer, defaultState) {
+import { isPlainObject, INIT, UNKNOW, isFunction } from "./utils";
+export default function (reducer, defaultState, enhanced) {
+  if (isFunction(defaultState)) {
+    enhanced = defaultState;
+    defaultState = undefined;
+  }
+
   const currentReducer = reducer;
   let currentState = defaultState;
 
