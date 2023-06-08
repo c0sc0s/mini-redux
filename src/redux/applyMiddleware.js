@@ -10,7 +10,7 @@ export default function (...middlewares) {
 
       const ezStore = {
         getState: store.getState,
-        dispatch: store.dispatch,
+        dispatch: (...args) => dispatch(...args),
       };
 
       const dispatchProducers = middlewares.map((middleware) =>
